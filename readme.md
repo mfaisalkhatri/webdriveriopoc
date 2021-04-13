@@ -50,9 +50,11 @@ reporters: [
 Since, this project is for mobile app, you need to set the `"deviceType": "phone"`, in the `capabilities` for appium section inside the `wdio.config.js`.
 Refer [Video-Reporter Setup][] for more details.
 
-7. For running the tests, you need to type the command: `npm test`.
+7. Install `chai` for assertions using the command: `npm install -D chai`.
 
-8. I have used `Gestures.js` for performing swipe gestures, from the [appium-boilerplate][] project.
+8. For running the tests, you need to type the command: `npm test`.
+
+9. I have used `Gestures.js` for performing swipe gestures, from the [appium-boilerplate][] project.
 
 ## Talking more about the Scenarios Covered in this project:
 As far as the tests are concerned, covering the login scenario is one of the basics of automation testing and many automation engineers are well versed in writing the code for it and covering it in their automated tests. However, I have seen in recent times that most of the testers struggle to write the user journeys. Though the app testing is done in isolated tests but I think its necessary to cover the user journeys in the tests so we test as per the use case the way an end-user uses the app.
