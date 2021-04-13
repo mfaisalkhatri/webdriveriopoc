@@ -1,9 +1,6 @@
 # POC on WebdriverIO tool.
 
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)][home]
-
-
-![test_recording](./assets/User_Journey.mp4)
+![test_recording](./assets/User_Journey.gif)
 
 ## What is it all about?
 This project is my first interaction with WebDriverIO. This project has sample test code for "Sauce labs demo app". 
@@ -74,16 +71,12 @@ So, apart from the login scenario I have covered the following user journey as s
 ## Need Assistance?
 * Discuss your queries by writing to me @ mohammadfaisalkhatri@gmail.com
 * Connect me at [LinkedIn][] or [Twitter][]
-* If you find that anything is missing/have not been considered in the generic cases, then you can create a [new issue][] with required details, and I'll update the cases accordingly at the earliest.
 
- 
-## :star: What you do if you like the project?
+ ## :star: What you do if you like the project?
 * Spread the word with your network.
 *  **Star** the project to make the project popular.
 
  
-[new issue]: https://github.com/mfaisalkhatri/Manual_Testing/issues/new
-[home]: https://github.com/mfaisalkhatri/Manual_Testing
 [linkedIn]: https://www.linkedin.com/in/faisalkhatri/
 [Twitter]: https://twitter.com/mfaisal_khatri
 [Getting Started]: https://webdriver.io/docs/gettingstarted
