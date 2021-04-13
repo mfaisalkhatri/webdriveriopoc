@@ -1,5 +1,6 @@
 # POC on WebdriverIO tool.
 
+## Recording of the user journey test!
 ![test_recording](./assets/User_Journey.gif)
 
 ## What is it all about?
