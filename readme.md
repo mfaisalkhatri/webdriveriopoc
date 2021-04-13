@@ -85,7 +85,7 @@ Hence, apart from the login scenario I have covered the following user journey a
  
 [linkedIn]: https://www.linkedin.com/in/faisalkhatri/
 [Twitter]: https://twitter.com/mfaisal_khatri
-[Getting Started]: https://webdriver.io/docs/gettingstarted
+[WebdriverIO]: https://webdriver.io/docs/gettingstarted
 [Babel Setup]: https://webdriver.io/docs/babel
 [Video-Reporter Setup]: https://webdriver.io/docs/wdio-video-reporter/
 [appium-boilerplate]: https://github.com/webdriverio/appium-boilerplate
