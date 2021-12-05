@@ -12,39 +12,39 @@ class OrderCompletionPage {
     get btnFinish() { return $('~test-FINISH') }
 
 
-    verifyCheckoutDetails(expectedProductName, expectedProductDesc, expectedProductPrice, expectedItemPrice,
+    async verifyCheckoutDetails(expectedProductName, expectedProductDesc, expectedProductPrice, expectedItemPrice,
         expectedTaxAmt, expectedTotalAmt) {
 
-        this.productName.isDisplayed();
-        const actualProductName = this.productName.getText();
-        assert.equal(actualProductName, expectedProductName);
+        await this.productName.isDisplayed();
+        const actualProductName = await this.productName.getText();
+        assert.equal(actualProductName, await expectedProductName);
 
-        this.productDesc.isDisplayed();
-        const actualProductDesc = this.productDesc.getText();
-        assert.equal(actualProductDesc, expectedProductDesc);
+        await this.productDesc.isDisplayed();
+        const actualProductDesc = await this.productDesc.getText();
+        assert.equal(actualProductDesc, await expectedProductDesc);
 
-        this.productPrice.isDisplayed();
-        const actualProductPrice = this.productPrice.getText();
-        assert.equal(actualProductPrice, expectedProductPrice);
+        await this.productPrice.isDisplayed();
+        const actualProductPrice = await this.productPrice.getText();
+        assert.equal(actualProductPrice, await expectedProductPrice);
 
-        this.itemPrice.isDisplayed();
-        const actualItemPrice = this.itemPrice.getText();
-        assert.equal(actualItemPrice, expectedItemPrice);
+        await this.itemPrice.isDisplayed();
+        const actualItemPrice = await this.itemPrice.getText();
+        assert.equal(actualItemPrice, await expectedItemPrice);
 
-        this.taxAmount.isDisplayed();
-        const actualTaxAmount = this.taxAmount.getText();
+        await this.taxAmount.isDisplayed();
+        const actualTaxAmount = await this.taxAmount.getText();
         assert.equal(actualTaxAmount, expectedTaxAmt);
 
-        this.totalAmount.isDisplayed();
-        const actualTotalAmount = this.totalAmount.getText();
-        assert.equal(actualTotalAmount, expectedTotalAmt);
+        await this.totalAmount.isDisplayed();
+        const actualTotalAmount = await this.totalAmount.getText();
+        assert.equal(actualTotalAmount, await expectedTotalAmt);
 
     }
 
-    completeOrder() {
-        Gestures.swipeUp(0.5);
-        this.btnFinish.isDisplayed();
-        this.btnFinish.click()
+    async completeOrder() {
+        await Gestures.swipeUp(0.7);
+        await this.btnFinish.isDisplayed();
+        await this.btnFinish.click()
     }
 }
 module.exports = new OrderCompletionPage();

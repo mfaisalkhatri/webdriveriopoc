@@ -1,7 +1,7 @@
-import Gestures from '../test/helpers/Gestures.js';
+const { default: Gestures } = require("../test/helpers/Gestures")
 const { assert } = require("chai");
 
-class ProductPage extends Gestures {
+class ProductPage {
 
     get productName() {
         return $('//android.view.ViewGroup[@content-desc="test-Description"]/android.widget.TextView[1]')
@@ -13,23 +13,23 @@ class ProductPage extends Gestures {
     get btnAddToCart() { return $('~test-ADD TO CART') }
 
 
-    checkProductDetails(expectedProductName, expectedProductDesc, expectedProductPrice) {
-        this.productName.isDisplayed();
-        const actualProductName = this.productName.getText();
-        assert.equal(actualProductName, expectedProductName);
+    async checkProductDetails(expectedProductName, expectedProductDesc, expectedProductPrice) {
+        await this.productName.isDisplayed();
+        const actualProductName = await this.productName.getText();
+        assert.equal(actualProductName, await expectedProductName);
 
-        this.productDesc.isDisplayed();
-        const actualProductDesc = this.productDesc.getText();
-        assert.equal(actualProductDesc, expectedProductDesc);
+        await this.productDesc.isDisplayed();
+        const actualProductDesc = await this.productDesc.getText();
+        assert.equal(actualProductDesc, await expectedProductDesc);
 
-        this.productPrice.isDisplayed();
-        const actualProductPrice = this.productPrice.getText();
-        assert.equal(actualProductPrice, expectedProductPrice);
+        await this.productPrice.isDisplayed();
+        const actualProductPrice = await this.productPrice.getText();
+        assert.equal(actualProductPrice, await expectedProductPrice);
     }
 
-    clickAddToCartButton() {
-        Gestures.swipeUp(0.5);
-        this.btnAddToCart.click();
+    async clickAddToCartButton() {
+        await Gestures.swipeUp(0.7);
+        await this.btnAddToCart.click();
     }
 }
 

@@ -9,14 +9,14 @@ class DispatchDetails {
         return $('//android.widget.ScrollView[@content-desc="test-CHECKOUT: COMPLETE!"]/android.view.ViewGroup/android.widget.TextView[2]')
     }
 
-    checkDispatchDetails(expectedTitle, expectedOrderDetails) {
-        this.title.isDisplayed();
-        const actualTitle = this.title.getText();
-        assert.equal(actualTitle, expectedTitle);
+    async checkDispatchDetails(expectedTitle, expectedOrderDetails) {
+        await this.title.isDisplayed();
+        const actualTitle = await this.title.getText();
+        assert.equal(actualTitle, await expectedTitle);
 
-        this.orderDispatchDetails.isDisplayed();
-        const actualOrderDetails = this.orderDispatchDetails.getText();
-        assert.equal(actualOrderDetails, expectedOrderDetails);
+        await this.orderDispatchDetails.isDisplayed();
+        const actualOrderDetails = await this.orderDispatchDetails.getText();
+        assert.equal(actualOrderDetails, await expectedOrderDetails);
 
     }
 

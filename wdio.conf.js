@@ -61,16 +61,17 @@ exports.config = {
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 1,
-        "deviceType": "phone",
-        'deviceName': 'Redmi Note 9 Pro Max',
+        'avd': 'Pixel_4_API_29',
+        'deviceName': 'Pixel 4 API 29',
         'platformName': 'Android',
         'platformVersion': '10.0',
         'automationName': 'UiAutomator2',
         'app': join(process.cwd(), '/app/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk'),
-        'orientation': 'PORTRAIT',
-        'fullReset': false,
-        'appPackage': 'com.swaglabsmobileapp',
-        'appActivity': '.MainActivity'
+        'appWaitActivity': 'com.swaglabsmobileapp.MainActivity',
+        'appWaitDuration': 20000
+            // 'appPackage': 'com.swaglabsmobileapp',
+            // 'appActivity': '.MainActivity',
+
         //
         // browserName: 'chrome',
         // acceptInsecureCerts: true
@@ -154,14 +155,15 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec', 'dot', ['allure', {
-        outputDir: './_results_/allure-raw',
-        disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: true,
-    }],
+            outputDir: './_results_/allure-raw',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: true,
+        }],
         [video, {
-            saveAllVideos: true,       // If true, also saves videos for successful test cases
+            saveAllVideos: false, // If true, also saves videos for successful test cases
             videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
-        }]],
+        }]
+    ],
 
 
 
@@ -232,7 +234,11 @@ exports.config = {
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-    // beforeTest: function (test, context) {
+    // beforeTest: function(test, context) {
+    //     //driver.setImplicitTimeout(30000);
+    //     driver.setTimeout({
+    //         'implicit': 30000,
+    //     });
     // },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
@@ -249,11 +255,11 @@ exports.config = {
     /**
      * Function to be executed after a test (in Mocha/Jasmine).
      */
-    afterTest: function (test, context, { error, result, duration, passed, retries }) {
-        if (!passed) {
-            browser.takeScreenshot();
-        }
-    },
+    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
+    //     if (!passed) {
+    //         await browser.takeScreenshot();
+    //     }
+    // },
 
 
     /**
@@ -299,10 +305,10 @@ exports.config = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {String} oldSessionId session ID of the old session
-    * @param {String} newSessionId session ID of the new session
-    */
+     * Gets executed when a refresh happens.
+     * @param {String} oldSessionId session ID of the old session
+     * @param {String} newSessionId session ID of the new session
+     */
     //onReload: function(oldSessionId, newSessionId) {
     //}
 }

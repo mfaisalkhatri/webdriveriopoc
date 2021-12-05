@@ -7,9 +7,9 @@ class MainPage {
     get logoutLink() {
         return $('~test-LOGOUT')
     }
-    logout() {
-        this.menuIcon.click();
-        this.logoutLink.click();
+    async logout() {
+        await this.menuIcon.click();
+        await this.logoutLink.click();
     }
 
 }

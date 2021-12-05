@@ -30,10 +30,10 @@ class Gestures {
      * @param {number} maxScrolls
      * @param {number} amount
      */
-    static checkIfDisplayedWithScrollDown(element, maxScrolls, amount = 0) {
-        if ((!element.isExisting() || !element.isDisplayed()) && amount <= maxScrolls) {
-            this.swipeUp(0.85);
-            this.checkIfDisplayedWithScrollDown(element, maxScrolls, amount + 1);
+    static async checkIfDisplayedWithScrollDown(element, maxScrolls, amount = 0) {
+        if ((!await element.isExisting() || !await element.isDisplayed()) && amount <= maxScrolls) {
+            await this.swipeUp(0.85);
+            await this.checkIfDisplayedWithScrollDown(element, maxScrolls, amount + 1);
         } else if (amount > maxScrolls) {
             throw new Error(`The element '${element}' could not be found or is not visible.`);
         }
@@ -44,8 +44,8 @@ class Gestures {
      *
      * @param {number} percentage from 0 - 1
      */
-    static swipeDown(percentage = 1) {
-        this.swipeOnPercentage(
+    static async swipeDown(percentage = 1) {
+        await this.swipeOnPercentage(
             this._calculateXY(SWIPE_DIRECTION.down.start, percentage),
             this._calculateXY(SWIPE_DIRECTION.down.end, percentage),
         );
@@ -56,8 +56,8 @@ class Gestures {
      *
      * @param {number} percentage from 0 - 1
      */
-    static swipeUp(percentage = 1) {
-        this.swipeOnPercentage(
+    static async swipeUp(percentage = 1) {
+        await this.swipeOnPercentage(
             this._calculateXY(SWIPE_DIRECTION.up.start, percentage),
             this._calculateXY(SWIPE_DIRECTION.up.end, percentage),
         );
@@ -68,8 +68,8 @@ class Gestures {
      *
      * @param {number} percentage from 0 - 1
      */
-    static swipeLeft(percentage = 1) {
-        this.swipeOnPercentage(
+    static async swipeLeft(percentage = 1) {
+        await this.swipeOnPercentage(
             this._calculateXY(SWIPE_DIRECTION.left.start, percentage),
             this._calculateXY(SWIPE_DIRECTION.left.end, percentage),
         );
@@ -80,8 +80,8 @@ class Gestures {
      *
      * @param {number} percentage from 0 - 1
      */
-    static swipeRight(percentage = 1) {
-        this.swipeOnPercentage(
+    static async swipeRight(percentage = 1) {
+        await this.swipeOnPercentage(
             this._calculateXY(SWIPE_DIRECTION.right.start, percentage),
             this._calculateXY(SWIPE_DIRECTION.right.end, percentage),
         );
@@ -101,11 +101,11 @@ class Gestures {
      *   const to = { x: 25, y:50 }
      * </pre>
      */
-    static swipeOnPercentage(from, to) {
-        SCREEN_SIZE = SCREEN_SIZE || driver.getWindowRect();
+    static async swipeOnPercentage(from, to) {
+        SCREEN_SIZE = SCREEN_SIZE || await driver.getWindowRect();
         const pressOptions = this._getDeviceScreenCoordinates(SCREEN_SIZE, from);
         const moveToScreenCoordinates = this._getDeviceScreenCoordinates(SCREEN_SIZE, to);
-        this.swipe(
+        await this.swipe(
             pressOptions,
             moveToScreenCoordinates,
         );
@@ -124,20 +124,22 @@ class Gestures {
      *   const to = { x: 25, y:50 }
      * </pre>
      */
-    static swipe(from, to) {
-        driver.touchPerform([{
-            action: 'press',
-            options: from,
-        }, {
-            action: 'wait',
-            options: { ms: 1000 },
-        }, {
-            action: 'moveTo',
-            options: to,
-        }, {
-            action: 'release',
-        }]);
-        driver.pause(1000);
+    static async swipe(from, to) {
+
+
+        // await driver.touchPerform([{
+        //     action: 'press',
+        //     options: from,
+        // }, {
+        //     action: 'wait',
+        //     options: { ms: 1000 },
+        // }, {
+        //     action: 'moveTo',
+        //     options: to,
+        // }, {
+        //     action: 'release',
+        // }]);
+        await driver.pause(1000);
     }
 
     /**

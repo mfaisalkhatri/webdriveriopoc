@@ -19,16 +19,17 @@ class LoginPage {
      * e.g. to login using username and password
      */
 
-    getMessageText() {
-        this.messageForInvalidLogin.isDisplayed();
-        return this.messageForInvalidLogin.getText();
+    async getMessageText() {
+        await this.messageForInvalidLogin.isDisplayed();
+        return await this.messageForInvalidLogin.getText();
     }
-    login(username, password) {
-        this.inputUsername.clearValue();
-        this.inputUsername.setValue(username);
-        this.inputPassword.clearValue();
-        this.inputPassword.setValue(password);
-        this.btnLogin.click();
+    async login(username, password) {
+        await this.inputUsername.waitForDisplayed();
+        await this.inputUsername.clearValue();
+        await this.inputUsername.setValue(username);
+        await this.inputPassword.clearValue();
+        await this.inputPassword.setValue(password);
+        await this.btnLogin.click();
     }
 }
 

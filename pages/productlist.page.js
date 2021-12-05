@@ -15,23 +15,23 @@ class ProductListPage {
     }
 
 
-    getProductPrice() {
-        return this.productPrice.getText();
+    async getProductPrice() {
+        return await this.productPrice.getText();
     }
 
-    getProductName() {
-        return this.productName.getText();
+    async getProductName() {
+        return await this.productName.getText();
     }
 
-    clickProductDetailsCard() {
-        this.backpackProduct.isDisplayed();
-        this.backpackProduct.click()
+    async clickProductDetailsCard() {
+        await this.backpackProduct.isDisplayed();
+        await this.backpackProduct.click()
     }
 
 
-    selectBackPackProduct() {
-        this.btnAddToCart.isDisplayed();
-        this.btnAddToCart.click();
+    async selectBackPackProduct() {
+        await this.btnAddToCart.isDisplayed();
+        await this.btnAddToCart.click();
     };
 }
 module.exports = new ProductListPage();

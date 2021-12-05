@@ -5,21 +5,21 @@ class CheckoutInfoPage {
     get postalCode() { return $('~test-Zip/Postal Code') }
     get btnContinue() { return $('~test-CONTINUE') }
 
-    enterDetailsToCheckout(firstName, lastName, postalCode) {
-        this.firstName.isDisplayed();
-        this.firstName.clearValue();
-        this.firstName.setValue(firstName)
+    async enterDetailsToCheckout(firstName, lastName, postalCode) {
+        await this.firstName.isDisplayed();
+        await this.firstName.clearValue();
+        await this.firstName.setValue(firstName)
 
-        this.lastName.isDisplayed();
-        this.lastName.clearValue();
-        this.lastName.setValue(lastName)
+        await this.lastName.isDisplayed();
+        await this.lastName.clearValue();
+        await this.lastName.setValue(lastName)
 
-        this.postalCode.isDisplayed();
-        this.postalCode.clearValue();
-        this.postalCode.setValue(postalCode);
+        await this.postalCode.isDisplayed();
+        await this.postalCode.clearValue();
+        await this.postalCode.setValue(postalCode);
 
-        this.btnContinue.isDisplayed();
-        this.btnContinue.click();
+        await this.btnContinue.isDisplayed();
+        await this.btnContinue.click();
     }
 
 }

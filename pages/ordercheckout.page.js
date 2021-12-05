@@ -14,25 +14,25 @@ class OrderCheckOutPage {
     get productPrice() { return $('//android.view.ViewGroup[@content-desc="test-Price"]/android.widget.TextView') }
     get btnCheckout() { return $('~test-CHECKOUT') }
 
-    checkCartDetails(expectedProductName, expectedProductPrice, expectedProductDesc) {
-        this.cart.isDisplayed();
-        this.cart.click();
-        this.productName.isDisplayed();
-        const actualProductName = this.productName.getText();
-        assert.equal(actualProductName, expectedProductName);
+    async checkCartDetails(expectedProductName, expectedProductPrice, expectedProductDesc) {
+        await this.cart.isDisplayed();
+        await this.cart.click();
+        await this.productName.isDisplayed();
+        const actualProductName = await this.productName.getText();
+        assert.equal(actualProductName, await expectedProductName);
 
-        this.productDesc.isDisplayed();
-        const actualProductDesc = this.productDesc.getText();
-        assert.equal(actualProductDesc, expectedProductDesc);
+        await this.productDesc.isDisplayed();
+        const actualProductDesc = await this.productDesc.getText();
+        assert.equal(actualProductDesc, await expectedProductDesc);
 
-        this.productPrice.isDisplayed();
-        const actualProductPrice = this.productPrice.getText();
-        assert.equal(actualProductPrice, expectedProductPrice);
+        await this.productPrice.isDisplayed();
+        const actualProductPrice = await this.productPrice.getText();
+        assert.equal(actualProductPrice, await expectedProductPrice);
     }
 
-    clickOnCheckout() {
-        this.btnCheckout.isDisplayed();
-        this.btnCheckout.click();
+    async clickOnCheckout() {
+        await this.btnCheckout.isDisplayed();
+        await this.btnCheckout.click();
     }
 }
 
